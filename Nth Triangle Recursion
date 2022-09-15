@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int nth_triangle(int n){
+	if(n==0) return 0;
+	int sum=n+nth_triangle(n-1);
+	return sum;
+}
+int main() {
+	int n;
+	cin>>n;
+	cout<<nth_triangle(n);
+	return 0;
+}
