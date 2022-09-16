@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int n;
+	cin>>n;
+	int oct=0;
+	int temp=1;
+	while(n/8!=0){
+		oct+=n%8*temp;
+		temp*=10;
+		n/=8;
+	}
+	if(n%8!=0){
+		oct+=n%8*temp;
+	}
+	cout<<oct;
+	return 0;
+}
