@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int main() {
+	int n;
+	cin>>n;
+	int n1=0;
+	int n2=1;
+	int nth;
+	if(n==0){
+		cout<<0;
+	}
+	else if(n==1){
+		cout<<1;
+	}
+	else{
+		for(int i=2;i<=n;i++){
+			int temp=n1;
+			n1=n2;
+			n2+=temp;
+			nth=n2;
+		}
+	}
+	cout<<nth;
+	return 0;
+}
