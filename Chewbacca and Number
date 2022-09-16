@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main() {
+	long int x;
+	cin>>x;
+	long int n=0;
+	long int tens=1;
+	while(x>0){
+		if(9-(x%10)<x%10 && (x/10!=0 || x!=9)){
+			n+=(9-(x%10))*tens;
+		}
+		else{
+			n+=(x%10)*tens;
+		}
+		tens*=10;
+		x/=10;
+	}
+	cout<<n;
+}
