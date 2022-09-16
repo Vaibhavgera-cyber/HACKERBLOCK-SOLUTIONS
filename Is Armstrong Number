@@ -1,0 +1,26 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main() {
+	int n;
+	cin>>n;
+	int n1=n;
+	int sum;
+	int tens=10;
+	int dig=1;
+	while(n/tens!=0){
+		dig++; 
+		tens*=10;
+	}
+	while(n1){
+		sum+=pow(n1%10,dig);
+		n1/=10;
+	}
+	if(n==sum){
+		cout<<"true";
+	}
+	else{
+		cout<<"false";
+	}
+	return 0;
+}
