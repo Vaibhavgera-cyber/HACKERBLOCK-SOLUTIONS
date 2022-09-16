@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+int digsum(int n){
+	int sum=0;
+	while(n){
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
+}
+int main() {
+	long int n;
+	cin>>n; 
+	long int sum=0,sum2=0;
+	long int i=2;
+	sum2=digsum(n);
+	while(n>1){
+		if(n%i==0){
+ 			sum+=digsum(i);
+			n=n/i;
+		}
+		else{
+			i++;
+
+		}
+	}
+	if(sum==sum2){
+		cout<<1;
+	}
+	else{
+		cout<<0;
+	}
+	return 0;
+}
