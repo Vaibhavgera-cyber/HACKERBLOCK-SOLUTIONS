@@ -1,0 +1,40 @@
+                      1
+	              	2	  3	  2
+          	  3   4	  5	  4	  3
+           4	5 	6	  7	  6 	5	  4
+   
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int n;
+    cin>>n;
+    int i, j, num = 1, gap;
+    gap = n - 1;
+    
+ 
+    for ( j = 1 ; j <= n ; j++ )
+    {
+        num = j;
+        for ( i = 1 ; i <= gap ; i++ )
+            cout << "\t";
+ 
+        gap --;
+        for ( i = 1 ; i <= j ; i++ )
+        {
+            cout << num<<"\t";
+            num++;
+        }
+        num--;
+        num--;
+        for ( i = 1 ; i < j ; i++)
+        {
+            cout << num<<"\t";
+            num--;
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+ 
