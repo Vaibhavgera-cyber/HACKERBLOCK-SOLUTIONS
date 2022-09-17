@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int firstOcc(int arr[],int target,int i,int n){
+	if(n==0){
+		return -1;
+	}
+
+	if(arr[0]==target){
+		return i;
+	}
+
+	return firstOcc(arr+1,target,i+1,n-1);
+}
+int main() {
+	int n;
+	cin >> n;
+	int arr[n];
+	for(int i=0;i<n;i++){
+		cin >> arr[i];
+	}
+	int target;
+	cin >> target;
+	int i=0;
+	firstOcc(arr,target,i,n);
+
+	cout << firstOcc(arr,target,i,n)<< endl;
+
+}
