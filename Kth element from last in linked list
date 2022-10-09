@@ -1,0 +1,144 @@
+
+
+#include <iostream>
+
+using namespace std;
+
+class Node{
+    
+    public:
+    int data;
+    Node* next;
+    
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+};
+
+void insert(Node* &head,int val){
+    Node* n=new Node(val);
+    if(head==NULL){
+        head=n;
+        return;
+    }
+    
+    Node* temp=head;
+    
+    while(temp->next){
+        temp=temp->next;
+    }
+    temp->next=n;
+    
+}
+
+void display(Node*&head){
+    
+    if(head==NULL)return;
+    
+    Node* temp=head;
+    
+    while(temp){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    cout<<endl;
+}
+
+
+void oddEven(Node*&head){
+    
+    
+    Node* od=new Node(-1);
+    Node* odd=od;
+    
+    Node* ev=new Node(-1);
+    Node* even=ev;
+    
+    
+    Node* temp=head;
+    
+    while(temp){
+        // Node* n=new Node(temp->data);
+        if(temp->data%2==0){
+            ev->next=temp;
+            temp=temp->next;
+            ev=ev->next;
+            
+             ev->next=NULL;
+        }
+        else{
+            od->next=temp;
+             temp=temp->next;
+             od=od->next;
+             od->next=NULL;
+        }
+        
+    }
+    
+    od->next=even->next;
+    
+    display(odd->next);
+}
+
+
+Node* reverse(Node* head){
+    
+    Node* pre=NULL;
+    Node* curr=head;
+    Node* post;
+    
+    while(curr){
+        post=curr->next;
+        curr->next=pre;
+        pre=curr;
+        curr=post;
+    }
+    return pre;
+}
+void lastelement(Node* head,int k){
+    
+    Node* rev=reverse(head);
+    
+    while(rev!=NULL && k>1){
+        rev=rev->next;
+        k--;
+    }
+    
+    cout<<rev->data<<endl;
+}
+
+
+int main(){
+    Node* head=NULL;
+    
+    while(true){
+        int x;
+        cin>>x;
+        if(x==-1)break;
+        
+        insert(head,x);
+    }
+    int k;
+    cin>>k;
+    
+    lastelement(head,k);
+}
+// int main()
+// {
+//     Node* head=NULL;
+//     int n;
+//     cin>>n;
+    
+//     for(int i=0;i<n;i++){
+//         int x;
+//         cin>>x;
+        
+//         insert(head,x);
+//     }
+    
+    
+//     oddEven(head);
+
+//     return 0;
+// }
